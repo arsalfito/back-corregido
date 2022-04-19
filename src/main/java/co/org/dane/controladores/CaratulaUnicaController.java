@@ -85,7 +85,7 @@ public class CaratulaUnicaController {
 		}
 	}
 	
-	@GetMapping(path = "/cargarCaratulaUnica/", 
+	/*@GetMapping(path = "/cargarCaratulaUnica/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CaratulaUnica> cargarCaratulaUnica(@RequestParam("usuario") String usuario) {
 		try {
@@ -97,9 +97,9 @@ public class CaratulaUnicaController {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}
+	}*/
 	
-	/*@GetMapping(path = "/cargarCaratulaUnica/", 
+	@GetMapping(path = "/cargarCaratulaUnica/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CaratulaUnicaDTO> cargarCaratulaUnica(@RequestParam("usuario") String usuario) {
 		try {
@@ -111,7 +111,7 @@ public class CaratulaUnicaController {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}*/
+	}
 	
 	@GetMapping(path = "/getCaratulaUnicaDirecciones/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
