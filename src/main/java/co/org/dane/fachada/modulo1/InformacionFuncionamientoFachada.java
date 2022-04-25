@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.InformacionFuncionamientoDTO;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.InformacionFuncionamiento;
-import co.org.dane.persistencia.entidades.modulo1.TipoCausa;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
+import co.org.dane.persistencia.entidades.InformacionFuncionamiento;
+import co.org.dane.persistencia.entidades.TipoCausa;
 
 /**
  * @author ALFONSO

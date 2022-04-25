@@ -9,33 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.org.dane.excepciones.EncuestaAnualComercioException;
-import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
-import co.org.dane.persistencia.entidades.modulo1.Departamento;
-import co.org.dane.persistencia.entidades.modulo1.EstadoEmpresa;
-import co.org.dane.persistencia.entidades.modulo1.Municipio;
-import co.org.dane.persistencia.entidades.modulo1.SubTipoOrganizacion;
-import co.org.dane.persistencia.entidades.modulo1.TipoCapitalSocial;
-import co.org.dane.persistencia.entidades.modulo1.TipoCausa;
-import co.org.dane.persistencia.entidades.modulo1.TipoDireccion;
-import co.org.dane.persistencia.entidades.modulo1.TipoDocumento;
-import co.org.dane.persistencia.entidades.modulo1.TipoIngresosNoOperacionales;
-import co.org.dane.persistencia.entidades.modulo1.TipoOperacion;
-import co.org.dane.persistencia.entidades.modulo1.TipoOrganizacion;
-import co.org.dane.persistencia.entidades.modulo1.TipoRegistroMercantil;
-import co.org.dane.persistencia.entidades.modulo1.TipoVariable;
+import co.org.dane.persistencia.entidades.CodigoCIIU;
+import co.org.dane.persistencia.entidades.Departamento;
+import co.org.dane.persistencia.entidades.EstadoEmpresa;
+import co.org.dane.persistencia.entidades.Municipio;
+import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
+import co.org.dane.persistencia.entidades.TipoCausa;
+import co.org.dane.persistencia.entidades.TipoIngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.TipoOrganizacion;
+import co.org.dane.persistencia.entidades.TipoVariable;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioCodigoCIIU;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioDepartamento;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioEstadoEmpresa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioMunicipio;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioSubTipoOrganizacion;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoCapitalSocial;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoCausa;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoDireccion;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoDocumento;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoIngresosNoOperacionales;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoOperacion;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoOrganizacion;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoRegistroMercantil;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoVariable;
 
 /**
@@ -45,29 +35,29 @@ import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoVariable;
 @Service
 public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 
-	@Autowired
-	private RepositorioTipoCapitalSocial repositorioTipoCapitalSocial;
+	/*@Autowired
+	private RepositorioTipoCapitalSocial repositorioTipoCapitalSocial;*/
 	
 	@Autowired
 	private RepositorioTipoCausa repositorioTipoCausa;
 	
-	@Autowired
-	private RepositorioTipoDireccion repositorioTipoDireccion;
+	/*@Autowired
+	private RepositorioTipoDireccion repositorioTipoDireccion;*/
 	
-	@Autowired
-	private RepositorioTipoDocumento repositorioTipoDocumento;
+	/*@Autowired
+	private RepositorioTipoDocumento repositorioTipoDocumento;*/
 	
 	@Autowired
 	private RepositorioTipoIngresosNoOperacionales repositorioTipoIngresosNoOperacionales;
 	
-	@Autowired
-	private RepositorioTipoOperacion repositorioTipoOperacion;
+	/*@Autowired
+	private RepositorioTipoOperacion repositorioTipoOperacion;*/
 	
 	@Autowired
 	private RepositorioTipoOrganizacion repositorioTipoOrganizacion;
 	
-	@Autowired
-	private RepositorioTipoRegistroMercantil repositorioTipoRegistroMercantil;
+	/*@Autowired
+	private RepositorioTipoRegistroMercantil repositorioTipoRegistroMercantil;*/
 	
 	@Autowired
 	private RepositorioTipoVariable repositorioTipoVariable;
@@ -88,25 +78,25 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 	private RepositorioEstadoEmpresa repositorioEstadoEmpresa;
 	
 	
-	@Override
+	/*@Override
 	public List<TipoCapitalSocial> findAllTipoCapitalSocial() throws EncuestaAnualComercioException {
 		return this.repositorioTipoCapitalSocial.findAllTipoCapitalSocial();
-	}
+	}*/
 
 	@Override
 	public List<TipoCausa> findAllTipoCausa() throws EncuestaAnualComercioException {
 		return this.repositorioTipoCausa.findAllTipoCausa();
 	}
 
-	@Override
+	/*@Override
 	public List<TipoDireccion> findAllTipoDireccion() throws EncuestaAnualComercioException {
 		return this.repositorioTipoDireccion.findAllTipoDireccion();
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public List<TipoDocumento> findAllTipoDocumento() throws EncuestaAnualComercioException {
 		return this.repositorioTipoDocumento.findAllTipoDocumento();
-	}
+	}*/
 
 	@Override
 	public List<TipoIngresosNoOperacionales> findAllTipoIngresosNoOperacionales()
@@ -114,20 +104,20 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 		return this.repositorioTipoIngresosNoOperacionales.findAllTipoIngresosNoOperacionales();
 	}
 
-	@Override
+	/*@Override
 	public List<TipoOperacion> findAllTipoOperacion() throws EncuestaAnualComercioException {
 		return this.repositorioTipoOperacion.findAllTipoOperacion();
-	}
+	}*/
 
 	@Override
 	public List<TipoOrganizacion> findAllTipoOrganizacion() throws EncuestaAnualComercioException {
 		return this.repositorioTipoOrganizacion.findAllTipoOrganizacion();
 	}
 
-	@Override
+	/*@Override
 	public List<TipoRegistroMercantil> findAllTipoRegistroMercantil() throws EncuestaAnualComercioException {
 		return this.repositorioTipoRegistroMercantil.findAllTipoRegistroMercantil();
-	}
+	}*/
 
 	@Override
 	public List<TipoVariable> findAllTipoVariable() throws EncuestaAnualComercioException {

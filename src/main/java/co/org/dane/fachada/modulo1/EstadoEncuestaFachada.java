@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.EstadoEncuestaDTO;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.EstadoEncuesta;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
+import co.org.dane.persistencia.entidades.EstadoEncuesta;
 
 /**
  * @author ALFONSO

@@ -28,20 +28,15 @@ import co.org.dane.fachada.modulo1.MunicipioFachada;
 import co.org.dane.fachada.modulo1.SubTipoOrganizacionFachada;
 import co.org.dane.fachada.modulo1.TipoOrganizacionFachada;
 import co.org.dane.fachada.modulo1.TipoVariableFachada;
-import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
-import co.org.dane.persistencia.entidades.modulo1.Departamento;
-import co.org.dane.persistencia.entidades.modulo1.EstadoEmpresa;
-import co.org.dane.persistencia.entidades.modulo1.Municipio;
-import co.org.dane.persistencia.entidades.modulo1.SubTipoOrganizacion;
-import co.org.dane.persistencia.entidades.modulo1.TipoCapitalSocial;
-import co.org.dane.persistencia.entidades.modulo1.TipoCausa;
-import co.org.dane.persistencia.entidades.modulo1.TipoDireccion;
-import co.org.dane.persistencia.entidades.modulo1.TipoDocumento;
-import co.org.dane.persistencia.entidades.modulo1.TipoIngresosNoOperacionales;
-import co.org.dane.persistencia.entidades.modulo1.TipoOperacion;
-import co.org.dane.persistencia.entidades.modulo1.TipoOrganizacion;
-import co.org.dane.persistencia.entidades.modulo1.TipoRegistroMercantil;
-import co.org.dane.persistencia.entidades.modulo1.TipoVariable;
+import co.org.dane.persistencia.entidades.CodigoCIIU;
+import co.org.dane.persistencia.entidades.Departamento;
+import co.org.dane.persistencia.entidades.EstadoEmpresa;
+import co.org.dane.persistencia.entidades.Municipio;
+import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
+import co.org.dane.persistencia.entidades.TipoCausa;
+import co.org.dane.persistencia.entidades.TipoIngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.TipoOrganizacion;
+import co.org.dane.persistencia.entidades.TipoVariable;
 import co.org.dane.servicios.modulo1.IServiciosParametroModulo1;
 import co.org.dane.springjwt.security.jwt.JwtUtils;
 
@@ -61,7 +56,7 @@ public class ParametrosModulo1Controller {
 	@Autowired
 	private JwtUtils jwtUtils;
 
-	@GetMapping(path = "/getAllTipoCapitalSocial/", 
+	/*@GetMapping(path = "/getAllTipoCapitalSocial/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<TipoCapitalSocial>> getAllTipoCapitalSocial(){
 		
@@ -72,7 +67,7 @@ public class ParametrosModulo1Controller {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}
+	}*/
 	
 	@GetMapping(path = "/getAllTipoCausa/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -86,7 +81,7 @@ public class ParametrosModulo1Controller {
 		}
 	}
 	
-	@GetMapping(path = "/getAllTipoDireccion/", 
+	/*@GetMapping(path = "/getAllTipoDireccion/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<TipoDireccion>> getAllTipoDireccion(){
 		try {
@@ -96,9 +91,9 @@ public class ParametrosModulo1Controller {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}
+	}*/
 	
-	@GetMapping(path = "/getAllTipoDocumento/", 
+	/*@GetMapping(path = "/getAllTipoDocumento/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<TipoDocumento>> getAllTipoDocumento(){
 		try {
@@ -108,7 +103,7 @@ public class ParametrosModulo1Controller {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}
+	}*/
 	
 	@GetMapping(path = "/getAllTipoIngresosNoOperacionales/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -122,7 +117,7 @@ public class ParametrosModulo1Controller {
 		}
 	}
 	
-	@GetMapping(path = "/getAllTipoOperacion/", 
+	/*@GetMapping(path = "/getAllTipoOperacion/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<TipoOperacion>> getAllTipoOperacion(){
 		try {
@@ -132,7 +127,7 @@ public class ParametrosModulo1Controller {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}
+	}*/
 	
 	@GetMapping(path = "/getAllTipoOrganizacion/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -146,7 +141,7 @@ public class ParametrosModulo1Controller {
 		}
 	}
 	
-	@GetMapping(path = "/getAllTipoRegistroMercantil/", 
+	/*@GetMapping(path = "/getAllTipoRegistroMercantil/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<TipoRegistroMercantil>> getAllTipoRegistroMercantil(){
 		try {
@@ -156,7 +151,7 @@ public class ParametrosModulo1Controller {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-	}
+	}*/
 	
 	@GetMapping(path = "/getAllTipoVariable/", 
 			produces = MediaType.APPLICATION_JSON_VALUE)

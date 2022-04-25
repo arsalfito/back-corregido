@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.MunicipioDTO;
-import co.org.dane.persistencia.entidades.modulo1.Municipio;
+import co.org.dane.persistencia.entidades.Municipio;
 
 /**
  * @author ALFONSO

@@ -10,9 +10,8 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.CapitalSocialDTO;
-import co.org.dane.persistencia.entidades.modulo1.CapitalSocial;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.TipoCapitalSocial;
+import co.org.dane.persistencia.entidades.CapitalSocial;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
 
 /**
  * @author ALFONSO
@@ -48,7 +47,8 @@ private static CapitalSocialFachada capitalSocialFachada;
 		dto.setPublico(entity.getPublico());
 		dto.setPrivado(entity.getPrivado());
 		dto.setTotal(entity.getTotal());
-		dto.setIdTipoCapitalSocial(entity.getTipoCapitalSocial() != null ? entity.getTipoCapitalSocial().getId() : 0);
+		//TODO Ajustar
+		//dto.setIdTipoCapitalSocial(entity.getTipoCapitalSocial() != null ? entity.getTipoCapitalSocial().getId() : 0);
 		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
 		
 		return dto;
@@ -61,11 +61,11 @@ private static CapitalSocialFachada capitalSocialFachada;
 		entity.setPrivado(dto.getPrivado());
 		entity.setTotal(dto.getTotal());
 		
-		if(dto.getIdTipoCapitalSocial() != 0){
+		/*if(dto.getIdTipoCapitalSocial() != 0){
 			TipoCapitalSocial tc = new TipoCapitalSocial();
 			tc.setId(dto.getIdTipoCapitalSocial());
 			entity.setTipoCapitalSocial(tc);
-		}
+		}*/
 		
 		if(dto.getIdCaratulaUnica() != 0){
 			CaratulaUnica cu = new CaratulaUnica();

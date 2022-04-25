@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import co.org.dane.persistencia.entidades.modulo1.VariableEmpresa;
+import co.org.dane.persistencia.entidades.VariableEmpresa;
 
 /**
  * @author ALFONSO

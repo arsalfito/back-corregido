@@ -6,16 +6,16 @@ package co.org.dane.servicios.modulo1;
 import java.util.List;
 
 import co.org.dane.excepciones.EncuestaAnualComercioException;
-import co.org.dane.persistencia.entidades.modulo1.CapitalSocial;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.Direccion;
-import co.org.dane.persistencia.entidades.modulo1.EstadoEncuesta;
-import co.org.dane.persistencia.entidades.modulo1.EstadoModulos;
-import co.org.dane.persistencia.entidades.modulo1.InformacionFuncionamiento;
-import co.org.dane.persistencia.entidades.modulo1.IngresosNoOperacionales;
-import co.org.dane.persistencia.entidades.modulo1.NovedadEncuesta;
-import co.org.dane.persistencia.entidades.modulo1.Operacion;
-import co.org.dane.persistencia.entidades.modulo1.VariableEmpresa;
+import co.org.dane.persistencia.entidades.CapitalSocial;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
+import co.org.dane.persistencia.entidades.Direccion;
+import co.org.dane.persistencia.entidades.EstadoEncuesta;
+import co.org.dane.persistencia.entidades.EstadoModulos;
+import co.org.dane.persistencia.entidades.InformacionFuncionamiento;
+import co.org.dane.persistencia.entidades.IngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.NovedadEncuesta;
+import co.org.dane.persistencia.entidades.Operacion;
+import co.org.dane.persistencia.entidades.VariableEmpresa;
 
 /**
  * @author ALFONSO

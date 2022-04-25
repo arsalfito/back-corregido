@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.DepartamentoDTO;
-import co.org.dane.persistencia.entidades.modulo1.Departamento;
+import co.org.dane.persistencia.entidades.Departamento;
 
 /**
  * @author ALFONSO

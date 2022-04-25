@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.TipoOrganizacionDTO;
-import co.org.dane.persistencia.entidades.modulo1.TipoOrganizacion;
+import co.org.dane.persistencia.entidades.TipoOrganizacion;
 
 /**
  * @author ALFONSO

@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.VariableEmpresaDTO;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
-import co.org.dane.persistencia.entidades.modulo1.TipoVariable;
-import co.org.dane.persistencia.entidades.modulo1.VariableEmpresa;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
+import co.org.dane.persistencia.entidades.CodigoCIIU;
+import co.org.dane.persistencia.entidades.TipoVariable;
+import co.org.dane.persistencia.entidades.VariableEmpresa;
 
 /**
  * @author ALFONSO

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.CodigoCIIUDTO;
-import co.org.dane.persistencia.entidades.modulo1.CodigoCIIU;
+import co.org.dane.persistencia.entidades.CodigoCIIU;
 
 /**
  * @author ALFONSO

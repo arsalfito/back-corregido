@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.EstadoModulosDTO;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.EstadoModulos;
-import co.org.dane.persistencia.entidades.modulo1.Modulo;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
+import co.org.dane.persistencia.entidades.EstadoModulos;
+import co.org.dane.persistencia.entidades.Modulo;
 
 /**
  * @author ALFONSO
@@ -50,7 +50,7 @@ private static EstadoModulosFachada estadoModulosFachada;
 		dto.setEstado(entity.getEstado());
 		dto.setIdModulo(entity.getModulo() != null ? entity.getModulo().getId(): 0);
 		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId(): 0);
-		
+		//TODO agregar estado modulos ue viene de una nueva enumeracion.
 		return dto;
 	}
 	

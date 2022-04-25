@@ -10,9 +10,8 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.OperacionDTO;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.Operacion;
-import co.org.dane.persistencia.entidades.modulo1.TipoOperacion;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
+import co.org.dane.persistencia.entidades.Operacion;
 
 /**
  * @author ALFONSO
@@ -48,7 +47,8 @@ public class OperacionFachada {
 		dto.setBienes(entity.getBienes());
 		dto.setServicios(entity.getServicios());
 		dto.setNinguna(entity.getNinguna());
-		dto.setIdTipoOperacion(entity.getTipoOperacion() != null ? entity.getTipoOperacion().getId() : 0);
+		//TODO Ajustar
+		//dto.setIdTipoOperacion(entity.getTipoOperacion() != null ? entity.getTipoOperacion().getId() : 0);
 		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
 		
 		return dto;
@@ -62,11 +62,11 @@ public class OperacionFachada {
 		entity.setServicios(dto.getServicios());
 		entity.setNinguna(dto.getNinguna());
 		
-		if(dto.getIdTipoOperacion()!=0){
+		/*if(dto.getIdTipoOperacion()!=0){
 			TipoOperacion to = new TipoOperacion();
 			to.setId(dto.getIdTipoOperacion());
 			entity.setTipoOperacion(to);
-		}
+		}*/
 		
 		if(dto.getIdCaratulaUnica()!=0){
 			CaratulaUnica cu = new CaratulaUnica();

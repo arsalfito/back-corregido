@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.IngresosNoOperacionalesDTO;
-import co.org.dane.persistencia.entidades.modulo1.CaratulaUnica;
-import co.org.dane.persistencia.entidades.modulo1.IngresosNoOperacionales;
-import co.org.dane.persistencia.entidades.modulo1.TipoIngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.CaratulaUnica;
+import co.org.dane.persistencia.entidades.IngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.TipoIngresosNoOperacionales;
 
 /**
  * @author ALFONSO
