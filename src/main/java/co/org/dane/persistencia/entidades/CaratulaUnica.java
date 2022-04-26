@@ -24,6 +24,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import co.org.dane.persistencia.entidades.enumeraciones.ETipoDocumento;
+import co.org.dane.persistencia.entidades.enumeraciones.ETipoRegistroMercantil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -253,24 +255,7 @@ public class CaratulaUnica implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<ValorActivos> valorActivos;
 	
-	@Override
-	public String toString() {
-		return "CaratulaUnica [id=" + id + ", numeroOrden=" + numeroOrden + ", numeroDocumento=" + numeroDocumento
-				+ ", digitoVerificacion=" + digitoVerificacion + ", numeroCamara=" + numeroCamara + ", numeroRegistro="
-				+ numeroRegistro + ", razonSocial=" + razonSocial + ", georeferenciaGerecia=" + georeferenciaGerecia
-				+ ", nombreComercial=" + nombreComercial + ", sigla=" + sigla + ", paginaWeb=" + paginaWeb
-				+ ", georeferenciaNotificacion=" + georeferenciaNotificacion + ", cualTipoOrgaizacion="
-				+ cualTipoOrgaizacion + ", fechaConstitucionDesde=" + fechaConstitucionDesde
-				+ ", fechaConstitucionHasta=" + fechaConstitucionHasta + ", cualOtroEstado=" + cualOtroEstado
-				+ ", numeroUnidadesApoyo=" + numeroUnidadesApoyo + ", direcciones=" + direcciones + ", tipoDocumento="
-				+ tipoDocumento + ", tipoRegistroMercantil=" + tipoRegistroMercantil + ", tipoOrganizacion="
-				+ tipoOrganizacion + ", subTipoOrganizacion=" + subTipoOrganizacion + ", estadoEmpresa=" + estadoEmpresa
-				+ ", capitalSocial=" + capitalSocial + ", operaciones=" + operaciones + ", variablesEmpresa="
-				+ variablesEmpresa + ", ingresosNoOperacionales=" + ingresosNoOperacionales
-				+ ", informacionFuncionamiento=" + informacionFuncionamiento + ", periodoRecoleccion="
-				+ periodoRecoleccion + ", novedadesEncuestas=" + novedadesEncuestas + ", estadosEncuestas="
-				+ estadosEncuestas + ", estadoModulos=" + estadoModulos + ", directorio=" + directorio + "]";
-	}
+	
 
 	
 }

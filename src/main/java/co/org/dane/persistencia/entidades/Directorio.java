@@ -23,6 +23,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import co.org.dane.persistencia.entidades.enumeraciones.ETipoDocumento;
+import co.org.dane.persistencia.entidades.enumeraciones.ETipoRegistroMercantil;
 import lombok.Getter;
 import lombok.Setter;
 

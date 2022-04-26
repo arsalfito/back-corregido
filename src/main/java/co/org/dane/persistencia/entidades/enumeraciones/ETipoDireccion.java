@@ -1,7 +1,7 @@
 ///**
 // * 
 // */
-package co.org.dane.persistencia.entidades;
+package co.org.dane.persistencia.entidades.enumeraciones;
 
 /**
  * @author ALFONSO
