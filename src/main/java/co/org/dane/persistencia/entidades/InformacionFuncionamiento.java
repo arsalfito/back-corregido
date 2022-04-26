@@ -17,9 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+import co.org.dane.persistencia.entidades.tipos.TipoCausa;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -82,20 +81,6 @@ public class InformacionFuncionamiento implements Serializable{
 	
 	@Column( name = "CELULAR_DILIGENCIA", nullable = true, updatable = true, length = 12 )
 	private long celularDiligencia;
-	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_TIPO_CAUSA_FK", nullable = true, updatable = true)

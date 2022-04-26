@@ -14,12 +14,10 @@ import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.CaratulaUnicaDTO;
 import co.org.dane.persistencia.entidades.CaratulaUnica;
-import co.org.dane.persistencia.entidades.Directorio;
 import co.org.dane.persistencia.entidades.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.PeriodoRecoleccion;
 import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
-import co.org.dane.persistencia.entidades.TipoCausa;
-import co.org.dane.persistencia.entidades.TipoOrganizacion;
+import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
 
 /**
  * @author ALFONSO
@@ -74,7 +72,7 @@ public class CaratulaUnicaFachada {
 		//dto.setIdTipoDocumento(entity.getTipoDocumento() != null ? entity.getTipoDocumento().getId() : 0);
 		//dto.setIdTipoRegistroMercantil(entity.getTipoRegistroMercantil() != null ? entity.getTipoRegistroMercantil().getId() : 0);		
 		dto.setIdTipoOrganizacion(entity.getTipoOrganizacion() != null ? entity.getTipoOrganizacion().getId() : 0);
-		dto.setIdTipoCausa(entity.getTipoCausa() != null ? entity.getTipoCausa().getId() : 0);
+		//dto.setIdTipoCausa(entity.getTipoCausa() != null ? entity.getTipoCausa().getId() : 0);
 		
 		if(entity.getSubTipoOrganizacion()==null)
 			dto.setIdSubTipoOrganizacion(0);
@@ -86,7 +84,7 @@ public class CaratulaUnicaFachada {
 		
 		dto.setIdEstadoEmpresa(entity.getEstadoEmpresa() != null ? entity.getEstadoEmpresa().getId() : 0);
 		dto.setIdPeriodoRecoleccion(entity.getPeriodoRecoleccion() != null ? entity.getPeriodoRecoleccion().getId() : 0 );
-		dto.setIdDirectorio(entity.getDirectorio() != null ? entity.getDirectorio().getId() : 0);
+		//dto.setIdDirectorio(entity.getDirectorio() != null ? entity.getDirectorio().getId() : 0);
 		
 		return dto;
 	}
@@ -142,11 +140,11 @@ public class CaratulaUnicaFachada {
 			caratulaUnica.setTipoOrganizacion(to);
 		}
 		
-		if(dto.getIdTipoCausa() != 0) {
+		/*if(dto.getIdTipoCausa() != 0) {
 			TipoCausa tc = new TipoCausa();
 			tc.setId(dto.getIdTipoCausa());
 			caratulaUnica.setTipoCausa(tc);
-		}
+		}*/
 		
 		if(dto.getIdSubTipoOrganizacion() != 0){
 			SubTipoOrganizacion sto = new SubTipoOrganizacion();
@@ -167,11 +165,11 @@ public class CaratulaUnicaFachada {
 			caratulaUnica.setPeriodoRecoleccion(pr);
 		}
 		
-		if(dto.getIdDirectorio() != 0){
+		/*if(dto.getIdDirectorio() != 0){
 			Directorio di = new Directorio();
 			di.setId(dto.getIdDirectorio());
 			caratulaUnica.setDirectorio(di);
-		}
+		}*/
 		
 		
 		//private long id;

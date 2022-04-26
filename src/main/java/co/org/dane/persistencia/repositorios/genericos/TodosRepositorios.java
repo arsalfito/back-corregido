@@ -14,20 +14,5 @@ public interface TodosRepositorios<T extends TiposGenericos> extends JpaReposito
 	//@Query("select p from #{#entityName} p where p.myDType = :myDType")
 	@Query("select p from TiposGenericos p where p.myDType = :myDType")
 	List<T> traerTipos(String myDType);
-	
-	/*@Query("from CausasOperacion")
-    List<CausasOperacion> traerCausasOperacion();*/
-	
-	//@Query("from TiposOrganizacion")
-    //List<TiposOrganizacion> TraerTiposOrganizacion();
-	
-	
-	//@Query("from :nombretipo")
-    //List<T> TraerTipos(@Param("nombretipo") String nombretipo);
-	
-	
-	//@Query("SELECT s FROM SubTiposOrganizacion s WHERE s.parent.id = :idTipoOrganizacion ORDER BY s.orden ASC")
-	//List<SubTiposOrganizacion> traersubtiposorganizacion(int idTipoOrganizacion);
-
 
 }

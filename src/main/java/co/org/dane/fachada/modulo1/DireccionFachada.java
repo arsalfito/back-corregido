@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.DireccionDTO;
-import co.org.dane.persistencia.entidades.CaratulaUnica;
 import co.org.dane.persistencia.entidades.Departamento;
 import co.org.dane.persistencia.entidades.Direccion;
 import co.org.dane.persistencia.entidades.Municipio;
@@ -54,7 +53,7 @@ public class DireccionFachada {
 		dto.setIdMunicipio(entity.getMunicipio() != null ? entity.getMunicipio().getId() : 0);
 		//TODO Ajustar
 		//dto.setIdTipoDireccion(entity.getTipoDireccion() != null ? entity.getTipoDireccion().getId() : 0);
-		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
+		//dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
 		return dto;
 	}
 	
@@ -87,11 +86,11 @@ public class DireccionFachada {
 			entity.setTipoDireccion(td);
 		}*/
 		
-		if(dto.getIdCaratulaUnica() != 0) {
+		/*if(dto.getIdCaratulaUnica() != 0) {
 			CaratulaUnica cu = new CaratulaUnica();
 			cu.setId(dto.getIdCaratulaUnica());
 			entity.setCaratulaUnica(cu);
-		}
+		}*/
 		
 		return entity;
 		

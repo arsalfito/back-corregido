@@ -12,8 +12,8 @@ import org.springframework.util.CollectionUtils;
 import co.org.dane.dto.modulo1.VariableEmpresaDTO;
 import co.org.dane.persistencia.entidades.CaratulaUnica;
 import co.org.dane.persistencia.entidades.CodigoCIIU;
-import co.org.dane.persistencia.entidades.TipoVariable;
 import co.org.dane.persistencia.entidades.VariableEmpresa;
+import co.org.dane.persistencia.entidades.tipos.TipoVariable;
 
 /**
  * @author ALFONSO

@@ -33,10 +33,10 @@ import co.org.dane.persistencia.entidades.Departamento;
 import co.org.dane.persistencia.entidades.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.Municipio;
 import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
-import co.org.dane.persistencia.entidades.TipoCausa;
-import co.org.dane.persistencia.entidades.TipoIngresosNoOperacionales;
-import co.org.dane.persistencia.entidades.TipoOrganizacion;
-import co.org.dane.persistencia.entidades.TipoVariable;
+import co.org.dane.persistencia.entidades.tipos.TipoCausa;
+import co.org.dane.persistencia.entidades.tipos.TipoIngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
+import co.org.dane.persistencia.entidades.tipos.TipoVariable;
 import co.org.dane.servicios.modulo1.IServiciosParametroModulo1;
 import co.org.dane.springjwt.security.jwt.JwtUtils;
 

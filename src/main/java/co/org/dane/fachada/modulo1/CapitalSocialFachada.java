@@ -11,7 +11,6 @@ import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.CapitalSocialDTO;
 import co.org.dane.persistencia.entidades.CapitalSocial;
-import co.org.dane.persistencia.entidades.CaratulaUnica;
 
 /**
  * @author ALFONSO
@@ -49,7 +48,7 @@ private static CapitalSocialFachada capitalSocialFachada;
 		dto.setTotal(entity.getTotal());
 		//TODO Ajustar
 		//dto.setIdTipoCapitalSocial(entity.getTipoCapitalSocial() != null ? entity.getTipoCapitalSocial().getId() : 0);
-		dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
+		//dto.setIdCaratulaUnica(entity.getCaratulaUnica() != null ? entity.getCaratulaUnica().getId() : 0);
 		
 		return dto;
 	}
@@ -67,11 +66,11 @@ private static CapitalSocialFachada capitalSocialFachada;
 			entity.setTipoCapitalSocial(tc);
 		}*/
 		
-		if(dto.getIdCaratulaUnica() != 0){
+		/*if(dto.getIdCaratulaUnica() != 0){
 			CaratulaUnica cu = new CaratulaUnica();
 			cu.setId(dto.getIdCaratulaUnica());
 			entity.setCaratulaUnica(cu);
-		}
+		}*/
 		
 		return entity;
 	}

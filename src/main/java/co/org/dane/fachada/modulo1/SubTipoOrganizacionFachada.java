@@ -43,7 +43,7 @@ public class SubTipoOrganizacionFachada {
 		SubTipoOrganizacionDTO dto = new SubTipoOrganizacionDTO();
 		dto.setId(entity.getId());
 		dto.setOrden(entity.getOrden());
-		dto.setCodigo(entity.getCodigo());
+		//dto.setCodigo(entity.getCodigo());
 		dto.setNombre(entity.getNombre());
 		
 		return dto;
@@ -54,7 +54,7 @@ public class SubTipoOrganizacionFachada {
 		SubTipoOrganizacion entity = new SubTipoOrganizacion();
 		entity.setId(dto.getId());
 		entity.setOrden(dto.getOrden());
-		entity.setCodigo(dto.getCodigo());
+		//entity.setCodigo(dto.getCodigo());
 		entity.setNombre(dto.getNombre());
 		
 		return entity;

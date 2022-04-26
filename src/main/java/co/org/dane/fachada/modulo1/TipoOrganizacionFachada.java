@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.TipoOrganizacionDTO;
-import co.org.dane.persistencia.entidades.TipoOrganizacion;
+import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
 
 /**
  * @author ALFONSO
@@ -43,7 +43,7 @@ public class TipoOrganizacionFachada {
 		TipoOrganizacionDTO dto = new TipoOrganizacionDTO();
 		dto.setId(entity.getId());
 		dto.setOrden(entity.getOrden());
-		dto.setCodigo(entity.getCodigo());
+		//dto.setCodigo(entity.getCodigo());
 		dto.setNombre(entity.getNombre());
 		
 		return dto;
@@ -54,7 +54,7 @@ public class TipoOrganizacionFachada {
 		TipoOrganizacion entity = new TipoOrganizacion();
 		entity.setId(dto.getId());
 		entity.setOrden(dto.getOrden());
-		entity.setCodigo(dto.getCodigo());
+		//entity.setCodigo(dto.getCodigo());
 		entity.setNombre(dto.getNombre());
 		
 		return entity;

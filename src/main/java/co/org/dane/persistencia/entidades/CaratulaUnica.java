@@ -21,11 +21,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoDocumento;
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoRegistroMercantil;
+import co.org.dane.persistencia.entidades.tipos.CausasOperacion;
+import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -109,50 +109,13 @@ public class CaratulaUnica implements Serializable{
 	@Column( name = "NUMERO_UNIDADES_APOYO", nullable = true, updatable = true, length = 5 )
 	private String numeroUnidadesApoyo;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_DIRECTORIO_FK", nullable = false, updatable = true)
+	private Directorio directorio;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "ID_DIRECCION_PRINCIPAL_FK", nullable = true, updatable = true)
-//	private Direccion direccionPrincipal;
-//	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "ID_DIRECCION_NOTIFICACION_FK", nullable = true, updatable = true)
-//	private Direccion direccionNotificacion;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<Direccion> direcciones; 
-	
-	//tipoRegistroMercantil TipoRegistroMercantil
-	//direccionNotificacio Direccion --OK
-	//tipoOrganizacion TipoOrganizacion --ok
-	//subTipoOrganizacion SubTipoOrganizacion ok
-	//capitalSocialNacional CapitalSocial
-	//capitalSocialExtranjero CapitalSocial
-	//estadoEmpresa EstadoEmpresa
-	//importacion Operaciones
-	//exportacion Operaciones
-	//variablesEmpresa List<VariablesEmpresa>
-	//ingresosNoOperacionales List<IngresosNoOperacionales>
-	//informacionFuncionamiento InformacionFuncionamiento
-	//periodosRecoleccion PeriodosRecoleccion
-	//novedadesEncuesta List<NovedadesEncuesta>
-	//estadosEncuesta List<EstadosEncuesta>
-	//estadoModulos List<EstadoModulos>
-		
-	//@ManyToOne(fetch = FetchType.LAZY)
-	//@JoinColumn(name = "ID_TIPO_DOCUMENTO_FK", nullable = false, updatable = true)
+	//----------------------------------------
+	//Relaciones con las entidaes de Modulo 1
+	//----------------------------------------
 	
 	@Enumerated(EnumType.STRING)
 	@Column(length = 10)
@@ -175,11 +138,16 @@ public class CaratulaUnica implements Serializable{
 	private EstadoEmpresa estadoEmpresa;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_TIPO_CAUSA_FK", nullable = true, updatable = true)
-	private TipoCausa tipoCausa;
+	@JoinColumn(name = "ID_CAUSAS_OPERACION_FK", nullable = true, updatable = true)
+	private CausasOperacion causasOperacion;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
-	private Collection<CapitalSocial> capitalSocial;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_CAP_SOC_NACIONAL_FK", nullable = true, updatable = true)
+	private CapitalSocial capitalSocialNacional;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_CAP_SOC_EXTRNJ_FK", nullable = true, updatable = true)
+	private CapitalSocial capitalSocialExtranjero;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<Operacion> operaciones;
@@ -195,7 +163,7 @@ public class CaratulaUnica implements Serializable{
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_PERIODO_RECOLECCION_FK", nullable = false, updatable = true)
-	private PeriodoRecoleccion periodoRecoleccion;
+	private PeriodoRecoleccion periodoRecoleccion; 
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<NovedadEncuesta> novedadesEncuestas;
@@ -206,9 +174,13 @@ public class CaratulaUnica implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<EstadoModulos> estadoModulos;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_DIRECTORIO_FK", nullable = false, updatable = true)
-	private Directorio directorio;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_DIRECCION_PRINCIPAL_FK", nullable = true, updatable = true)
+	private Direccion direccionPrincipal;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_DIRECCION_NOTIFICACION_FK", nullable = true, updatable = true)
+	private Direccion direccionNotificacion;
 	
 	//----------------------------------------
 	//Relaciones con las entidaes de Modulo 2

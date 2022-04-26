@@ -93,8 +93,4 @@ public class Direccion implements Serializable{
 	@Column(length = 10)
 	private ETipoDireccion tipoDireccion;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_CARATULA_UNICA_FK", nullable = false, updatable = true)
-	private CaratulaUnica caratulaUnica;	
-
 }

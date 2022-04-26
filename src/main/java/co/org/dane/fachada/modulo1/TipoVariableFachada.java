@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.util.CollectionUtils;
 
 import co.org.dane.dto.modulo1.TipoVariableDTO;
-import co.org.dane.persistencia.entidades.TipoVariable;
+import co.org.dane.persistencia.entidades.tipos.TipoVariable;
 
 /**
  * @author ALFONSO

@@ -12,7 +12,7 @@ import org.springframework.util.CollectionUtils;
 import co.org.dane.dto.modulo1.IngresosNoOperacionalesDTO;
 import co.org.dane.persistencia.entidades.CaratulaUnica;
 import co.org.dane.persistencia.entidades.IngresosNoOperacionales;
-import co.org.dane.persistencia.entidades.TipoIngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.tipos.TipoIngresosNoOperacionales;
 
 /**
  * @author ALFONSO

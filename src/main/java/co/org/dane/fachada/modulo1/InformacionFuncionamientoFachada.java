@@ -12,7 +12,7 @@ import org.springframework.util.CollectionUtils;
 import co.org.dane.dto.modulo1.InformacionFuncionamientoDTO;
 import co.org.dane.persistencia.entidades.CaratulaUnica;
 import co.org.dane.persistencia.entidades.InformacionFuncionamiento;
-import co.org.dane.persistencia.entidades.TipoCausa;
+import co.org.dane.persistencia.entidades.tipos.TipoCausa;
 
 /**
  * @author ALFONSO

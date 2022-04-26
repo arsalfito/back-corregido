@@ -18,13 +18,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoDocumento;
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoRegistroMercantil;
+import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -104,20 +104,6 @@ public class Directorio implements Serializable{
 	@Column( name = "CUAL_OTRO_ESTADO", nullable = true, updatable = true, length = 30 )
 	private String cualOtroEstado;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_USUARIO_FK", nullable = false, updatable = true)
 	private Usuario usuario;
@@ -129,6 +115,34 @@ public class Directorio implements Serializable{
 	@Enumerated(EnumType.STRING)
 	@Column(length = 25)
 	private ETipoRegistroMercantil tipoRegistroMercantil;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_TIPO_ORGANIZACION_FK", nullable = true, updatable = true)
+	private TipoOrganizacion tipoOrganizacion;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_SUC_TIPO_ORGANIZACION_FK", nullable = true, updatable = true)
+	private SubTipoOrganizacion subTipoOrganizacion;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_ESTADO_EMPRESA_FK", nullable = true, updatable = true)
+	private EstadoEmpresa estadoEmpresa;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_CAP_SOC_NACIONAL_FK", nullable = true, updatable = true)
+	private CapitalSocial capitalSocialNacional;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_CAP_SOC_EXTRNJ_FK", nullable = true, updatable = true)
+	private CapitalSocial capitalSocialExtranjero;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_DIRECCION_PRINCIPAL_FK", nullable = true, updatable = true)
+	private Direccion direccionPrincipal;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_DIRECCION_NOTIFICACION_FK", nullable = true, updatable = true)
+	private Direccion direccionNotificacion;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "directorio")
 	private Collection<CaratulaUnica> caratulas;

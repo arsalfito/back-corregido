@@ -14,19 +14,16 @@ import co.org.dane.persistencia.entidades.Departamento;
 import co.org.dane.persistencia.entidades.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.Municipio;
 import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
-import co.org.dane.persistencia.entidades.TipoCausa;
-import co.org.dane.persistencia.entidades.TipoIngresosNoOperacionales;
-import co.org.dane.persistencia.entidades.TipoOrganizacion;
-import co.org.dane.persistencia.entidades.TipoVariable;
+import co.org.dane.persistencia.entidades.tipos.TipoCausa;
+import co.org.dane.persistencia.entidades.tipos.TipoIngresosNoOperacionales;
+import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
+import co.org.dane.persistencia.entidades.tipos.TipoVariable;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioCodigoCIIU;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioDepartamento;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioEstadoEmpresa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioMunicipio;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioSubTipoOrganizacion;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoCausa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoIngresosNoOperacionales;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoOrganizacion;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoVariable;
 
 /**
  * @author ALFONSO
@@ -38,8 +35,6 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 	/*@Autowired
 	private RepositorioTipoCapitalSocial repositorioTipoCapitalSocial;*/
 	
-	@Autowired
-	private RepositorioTipoCausa repositorioTipoCausa;
 	
 	/*@Autowired
 	private RepositorioTipoDireccion repositorioTipoDireccion;*/
@@ -53,14 +48,10 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 	/*@Autowired
 	private RepositorioTipoOperacion repositorioTipoOperacion;*/
 	
-	@Autowired
-	private RepositorioTipoOrganizacion repositorioTipoOrganizacion;
 	
 	/*@Autowired
 	private RepositorioTipoRegistroMercantil repositorioTipoRegistroMercantil;*/
 	
-	@Autowired
-	private RepositorioTipoVariable repositorioTipoVariable;
 	
 	@Autowired
 	private RepositorioSubTipoOrganizacion repositorioSubTipoOrganizacion;
@@ -85,7 +76,8 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 
 	@Override
 	public List<TipoCausa> findAllTipoCausa() throws EncuestaAnualComercioException {
-		return this.repositorioTipoCausa.findAllTipoCausa();
+		return null;
+		//return this.repositorioTipoCausa.findAllTipoCausa();
 	}
 
 	/*@Override
@@ -111,7 +103,8 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 
 	@Override
 	public List<TipoOrganizacion> findAllTipoOrganizacion() throws EncuestaAnualComercioException {
-		return this.repositorioTipoOrganizacion.findAllTipoOrganizacion();
+		return null;
+		//return this.repositorioTipoOrganizacion.findAllTipoOrganizacion();
 	}
 
 	/*@Override
@@ -121,7 +114,8 @@ public class ServiciosParametroModulo1 implements IServiciosParametroModulo1 {
 
 	@Override
 	public List<TipoVariable> findAllTipoVariable() throws EncuestaAnualComercioException {
-		return this.repositorioTipoVariable.findAllTipoVariable();
+		return null;
+		//return this.repositorioTipoVariable.findAllTipoVariable();
 	}
 
 	@Override

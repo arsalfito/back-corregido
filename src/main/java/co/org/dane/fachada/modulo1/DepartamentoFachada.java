@@ -42,7 +42,7 @@ public class DepartamentoFachada {
 	
 		DepartamentoDTO dto = new DepartamentoDTO();
 		dto.setId(entity.getId());
-		dto.setCodigo(entity.getCodigo());
+		//dto.setCodigo(entity.getCodigo());
 		dto.setNombre(entity.getNombre());
 		
 		return dto;
@@ -52,7 +52,7 @@ public class DepartamentoFachada {
 		
 		Departamento entity = new Departamento();
 		entity.setId(dto.getId());
-		entity.setCodigo(dto.getCodigo());
+		//entity.setCodigo(dto.getCodigo());
 		entity.setNombre(dto.getNombre());
 		
 		return entity;

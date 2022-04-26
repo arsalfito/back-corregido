@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.org.dane.persistencia.entidades.tipos.CausasOperacion;
-import co.org.dane.persistencia.entidades.tipos.TipoEjemplo;
 import co.org.dane.persistencia.entidades.tipos.TiposGenericos;
-import co.org.dane.persistencia.repositorios.genericos.TiposGenericosRepositorio;
 import co.org.dane.persistencia.repositorios.genericos.TodosRepositorios;
 
 
@@ -25,14 +23,11 @@ import co.org.dane.persistencia.repositorios.genericos.TodosRepositorios;
 @RequestMapping("/api/pruebatipo")
 public class TestTiposGenericos {
 
-	@Autowired
-	private TiposGenericosRepositorio tgRepositorio;
 	
 	@Autowired
-	private TodosRepositorios<TiposGenericos> repositoriosCausasOperacion;
+	private TodosRepositorios<TiposGenericos> repositoriosTiposGenericos;
 	
-	@Autowired
-	private TodosRepositorios<TipoEjemplo> repositoriosTipoEjemplo;
+	
 	
 	@GetMapping("/agregartiposcausas")
 	public void agregar() {
@@ -57,7 +52,7 @@ public class TestTiposGenericos {
 		}		
 	}
 	
-	@GetMapping("/agregarTipoEjemplo")
+	/*@GetMapping("/agregarTipoEjemplo")
 	public void agregarTipoEjemplo() {
 		
 		try {
@@ -78,27 +73,27 @@ public class TestTiposGenericos {
 		catch (Exception e) {				
 			Integer i=0;
 		}		
-	}
+	}*/
 	
 	@GetMapping("/traerCausasOperacion")
 	public ResponseEntity<List<TiposGenericos>>  traerCausasOperacion() {
 		System.out.println(CausasOperacion.class.getSimpleName());
-		List<TiposGenericos> causasOperacion = this.repositoriosCausasOperacion.traerTipos(CausasOperacion.class.getSimpleName());
+		List<TiposGenericos> causasOperacion = this.repositoriosTiposGenericos.traerTipos(CausasOperacion.class.getSimpleName());
 		
 		return ResponseEntity.status(HttpStatus.OK).body(causasOperacion);
 	}
 	
-	@GetMapping("/traerTipoEjemplo")
+	/*@GetMapping("/traerTipoEjemplo")
 	public ResponseEntity<List<TipoEjemplo>>  traerTipoEjemplo() {
 		List<TipoEjemplo> tiposEjemplo = this.repositoriosTipoEjemplo.traerTipos(TipoEjemplo.class.getSimpleName());
 		
 		return ResponseEntity.status(HttpStatus.OK).body(tiposEjemplo);
-	}
+	}*/
 
 	
 	private void agregarTipo(TiposGenericos tipoGenerico) {
 		try {				
-			tgRepositorio.save(tipoGenerico);
+			repositoriosTiposGenericos.save(tipoGenerico);
 			} 
 		catch (Exception e) {				
 			Integer i=0;

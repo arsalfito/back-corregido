@@ -20,17 +20,14 @@ import co.org.dane.persistencia.entidades.InformacionFuncionamiento;
 import co.org.dane.persistencia.entidades.IngresosNoOperacionales;
 import co.org.dane.persistencia.entidades.NovedadEncuesta;
 import co.org.dane.persistencia.entidades.Operacion;
-import co.org.dane.persistencia.entidades.TipoCausa;
 import co.org.dane.persistencia.entidades.VariableEmpresa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioCaratulaUnica;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioDireccion;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioEstadoEncuesta;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioEstadoModulos;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioInformacionFuncionamiento;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioIngresosNoOperacionales;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioNovedadEncuesta;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioOperacion;
-import co.org.dane.persistencia.repositorios.modulo1.RepositorioTipoCausa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioVariableEmpresa;
 import co.org.dane.persistencia.repositorios.modulo1.RepositorioaCapitalSocial;
 
@@ -56,8 +53,6 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Autowired
 	private RepositorioVariableEmpresa repositorioVariableEmpresa; 
 	
-	@Autowired
-	private RepositorioIngresosNoOperacionales repositorioIngresosNoOperacionales;
 	
 	@Autowired
 	private RepositorioInformacionFuncionamiento repositorioInformacionFuncionamiento;
@@ -71,28 +66,8 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Autowired
 	private RepositorioEstadoModulos repositorioEstadoModulos;
 	
-	@Autowired
-	private RepositorioTipoCausa repositorioTipoCausa;
-	
 	@Override
 	public CaratulaUnica guardarCaratulaUnica(CaratulaUnica caratulaUnica, String usuario) throws EncuestaAnualComercioException {	
-		
-		if(caratulaUnica.getTipoCausa()!=null){
-			TipoCausa tc = this.repositorioTipoCausa.findById( caratulaUnica.getTipoCausa().getId( ) ).get();
-			if( tc != null && !tc.isTieneOpcionOtra()) 
-				caratulaUnica.setCualOtroEstado("");			
-		}
-		
-		if(caratulaUnica.getId() == 0) {
-			caratulaUnica.setFechaCreacion(new Date());
-			caratulaUnica.setUsuarioCreacion(usuario);
-		}else {
-			CaratulaUnica caratulaUnicaDB = this.repositorioCaratulaUnica.findById(caratulaUnica.getId()).get();
-			caratulaUnica.setUsuarioCreacion(caratulaUnicaDB.getUsuarioCreacion());
-			caratulaUnica.setFechaCreacion(caratulaUnicaDB.getFechaCreacion());
-			caratulaUnica.setFechaModificacion(new Date());
-			caratulaUnica.setUsuarioModificacion(usuario);
-		}
 		
 		return this.repositorioCaratulaUnica.save(caratulaUnica);
 	}
@@ -126,13 +101,15 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 
 	@Override
 	public List<Direccion> getCaratulaUnicaDirecciones(long idCaratulaUnica) throws EncuestaAnualComercioException {
-		return this.repositorioDireccion.findDireccionByIdCaratula(idCaratulaUnica);
+		return null;
+		//return this.repositorioDireccion.findDireccionByIdCaratula(idCaratulaUnica);
 	}
 
 	@Override
 	public List<CapitalSocial> getCaratulaUnicaCapitalSocial(long idCaratulaUnica)
 			throws EncuestaAnualComercioException {
-		return this.repositorioCapitalSocial.findCapitalSocialByIdCaratula(idCaratulaUnica);
+		return null;
+		//return this.repositorioCapitalSocial.findCapitalSocialByIdCaratula(idCaratulaUnica);
 	}
 
 	@Override
@@ -148,7 +125,8 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Override
 	public List<IngresosNoOperacionales> getCaratulaUnicaIngresosNoOperacionales(long idCaratulaUnica)
 			throws EncuestaAnualComercioException {
-		return this.repositorioIngresosNoOperacionales.findIngresosNoOperacionalesByIdCaratula(idCaratulaUnica);
+		return null;
+		//return this.repositorioIngresosNoOperacionales.findIngresosNoOperacionalesByIdCaratula(idCaratulaUnica);
 	}
 
 	@Override
@@ -195,16 +173,6 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Override
 	public CapitalSocial guardarCapitalSocial(CapitalSocial capitalSocial, String usuario) throws EncuestaAnualComercioException {
 		
-		if(capitalSocial.getId()==0){
-			capitalSocial.setUsuarioCreacion(usuario);
-			capitalSocial.setFechaCreacion(new Date());
-		}else{
-			CapitalSocial capitalSocialDB = this.repositorioCapitalSocial.findById(capitalSocial.getId()).get();
-			capitalSocial.setUsuarioCreacion(capitalSocialDB.getUsuarioCreacion());
-			capitalSocial.setFechaCreacion(capitalSocialDB.getFechaCreacion());
-			capitalSocial.setUsuarioModificacion(usuario);
-			capitalSocial.setFechaModificacion(new Date());
-		}
 		
 		return this.repositorioCapitalSocial.save(capitalSocial);
 	}
@@ -212,16 +180,6 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Override
 	public Operacion guardarOperacion(Operacion operacion, String usuario) throws EncuestaAnualComercioException {
 		
-		if(operacion.getId()==0){
-			operacion.setUsuarioCreacion(usuario);
-			operacion.setFechaCreacion(new Date());
-		}else{
-			Operacion operacionDB = this.repositorioOperacion.findById(operacion.getId()).get();
-			operacion.setUsuarioCreacion(operacionDB.getUsuarioCreacion());
-			operacion.setFechaCreacion(operacionDB.getFechaCreacion());
-			operacion.setUsuarioModificacion(usuario);
-			operacion.setFechaModificacion(new Date());
-		}
 		
 		return this.repositorioOperacion.save(operacion);
 	}
@@ -230,16 +188,6 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	public VariableEmpresa guardarVariableEmpresa(VariableEmpresa variableEmpresa, String usuario)
 			throws EncuestaAnualComercioException {
 		
-		if(variableEmpresa.getId()==0){
-			variableEmpresa.setUsuarioCreacion(usuario);
-			variableEmpresa.setFechaCreacion(new Date());
-		}else {
-			VariableEmpresa variableEmpresaDB = this.repositorioVariableEmpresa.findById(variableEmpresa.getId()).get();
-			variableEmpresa.setUsuarioCreacion(variableEmpresaDB.getUsuarioCreacion());
-			variableEmpresa.setFechaCreacion(variableEmpresaDB.getFechaCreacion());
-			variableEmpresa.setUsuarioModificacion(usuario);
-			variableEmpresa.setFechaModificacion(new Date());
-		}
 		
 		
 		return this.repositorioVariableEmpresa.save(variableEmpresa);
@@ -248,35 +196,13 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Override
 	public IngresosNoOperacionales guardarIngresosNoOperacionales(IngresosNoOperacionales ingresosNoOperacionales, String usuario)
 			throws EncuestaAnualComercioException {
-		
-		if(ingresosNoOperacionales.getId()==0){
-			ingresosNoOperacionales.setUsuarioCreacion(usuario);
-			ingresosNoOperacionales.setFechaCreacion(new Date());
-		}else{
-			IngresosNoOperacionales ingresosNoOperacionalesDB = this.repositorioIngresosNoOperacionales.findById(ingresosNoOperacionales.getId()).get();
-			ingresosNoOperacionales.setUsuarioCreacion(ingresosNoOperacionalesDB.getUsuarioCreacion());
-			ingresosNoOperacionales.setFechaCreacion(ingresosNoOperacionalesDB.getFechaCreacion());
-			ingresosNoOperacionales.setUsuarioModificacion(usuario);
-			ingresosNoOperacionales.setFechaModificacion(new Date());
-		}
-		
-		return this.repositorioIngresosNoOperacionales.save(ingresosNoOperacionales);
+		return null;
+		//return this.repositorioIngresosNoOperacionales.save(ingresosNoOperacionales);
 	}
 
 	@Override
 	public InformacionFuncionamiento guardarInformacionFuncionamiento(
 			InformacionFuncionamiento informacionFuncionamiento, String usuario) throws EncuestaAnualComercioException {
-		
-		if(informacionFuncionamiento.getId()==0) {
-			informacionFuncionamiento.setUsuarioCreacion(usuario);
-			informacionFuncionamiento.setFechaCreacion(new Date());
-		}else{
-			InformacionFuncionamiento informacionFuncionamientoDB = this.repositorioInformacionFuncionamiento.findById(informacionFuncionamiento.getId()).get();
-			informacionFuncionamiento.setUsuarioCreacion(informacionFuncionamientoDB.getUsuarioCreacion());
-			informacionFuncionamiento.setFechaCreacion(informacionFuncionamientoDB.getFechaCreacion());
-			informacionFuncionamiento.setUsuarioModificacion(usuario);
-			informacionFuncionamiento.setFechaModificacion(new Date());
-		}
 		
 		return this.repositorioInformacionFuncionamiento.save(informacionFuncionamiento);
 	}
@@ -285,34 +211,13 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	public NovedadEncuesta guardarNovedadEncuesta(NovedadEncuesta novedadEncuesta, String usuario)
 			throws EncuestaAnualComercioException {
 		
-		if(novedadEncuesta.getId()==0) {
-			novedadEncuesta.setUsuarioCreacion(usuario);
-			novedadEncuesta.setFechaCreacion(new Date());
-		}else {
-			NovedadEncuesta novedadEncuestaDB = this.repositorioNovedadEncuesta.findById(novedadEncuesta.getId()).get();
-			novedadEncuesta.setUsuarioCreacion(novedadEncuestaDB.getUsuarioCreacion());
-			novedadEncuesta.setFechaCreacion(novedadEncuestaDB.getFechaCreacion());
-			novedadEncuesta.setUsuarioModificacion(usuario);
-			novedadEncuesta.setFechaModificacion(new Date());
-		}
-		
 		return this.repositorioNovedadEncuesta.save(novedadEncuesta);
 	}
 
 	@Override
 	public EstadoEncuesta guardarEstadoEncuesta(EstadoEncuesta estadoEncuesta, String usuario) throws EncuestaAnualComercioException {
 		
-		if(estadoEncuesta.getId()==0) {
-			estadoEncuesta.setUsuarioCreacion(usuario);
-			estadoEncuesta.setFechaCreacion(new Date());
-		}else {
-			EstadoEncuesta estadoEncuestaDB = this.repositorioEstadoEncuesta.findById(estadoEncuesta.getId()).get();
-			estadoEncuesta.setUsuarioCreacion(estadoEncuestaDB.getUsuarioCreacion());
-			estadoEncuesta.setFechaCreacion(estadoEncuestaDB.getFechaCreacion());
-			estadoEncuesta.setUsuarioModificacion(usuario);
-			estadoEncuesta.setFechaModificacion(new Date());
-			
-		}
+		
 		
 		return this.repositorioEstadoEncuesta.save(estadoEncuesta);
 	}
@@ -320,16 +225,6 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Override
 	public EstadoModulos guardarEstadoModulos(EstadoModulos estadoModulos, String usuario) throws EncuestaAnualComercioException {
 		
-		if(estadoModulos.getId()==0) {
-			estadoModulos.setUsuarioCreacion(usuario);
-			estadoModulos.setFechaCreacion(new Date());
-		}else {
-			EstadoModulos estadoModulosDB = this.repositorioEstadoModulos.findById(estadoModulos.getId()).get();
-			estadoModulos.setUsuarioCreacion(estadoModulosDB.getUsuarioCreacion());
-			estadoModulos.setFechaCreacion(estadoModulosDB.getFechaCreacion());
-			estadoModulos.setUsuarioModificacion(usuario);
-			estadoModulos.setFechaModificacion(new Date());
-		}
 		
 		return this.repositorioEstadoModulos.save(estadoModulos);
 	}

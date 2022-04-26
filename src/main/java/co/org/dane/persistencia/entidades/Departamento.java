@@ -37,8 +37,11 @@ public class Departamento implements Serializable{
 	@Column( name = "ID_DEPARTAMENTO_PK", nullable = false )
 	private int id;
 	
-	@Column( name = "CODIGO", nullable = false, updatable = true, length = 2 )
-	private int codigo;
+	@Column( name = "CODIGO", nullable = false, updatable = true, length = 3 )
+	private String codigo;
+	
+	@Column( name = "DIVIPOLA", nullable = false, updatable = true, length = 3 )
+	private String divipola;
 	
 	@Column( name = "NOMBRE", nullable = false, updatable = true, length = 100 )
 	private String nombre;
