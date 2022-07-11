@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
-import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
 import lombok.Getter;
 import lombok.Setter;
 

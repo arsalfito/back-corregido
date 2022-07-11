@@ -5,6 +5,7 @@ package co.org.dane.dto.modulo1;
 
 import java.io.Serializable;
 
+import co.org.dane.persistencia.entidades.enumeraciones.ETipoOperacion;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,6 @@ public class OperacionDTO implements Serializable{
 	private int bienes;
 	private int servicios;
 	private int ninguna;
-	private int idTipoOperacion;
+	private ETipoOperacion tipoOperacion;
 	private long idCaratulaUnica;
 }

@@ -1,0 +1,5 @@
+package co.org.dane.persistencia.entidades.enumeraciones;
+
+public enum EEstadoObservaciones {
+	Creada, Reviado, Aceptado, Aprobado;
+}

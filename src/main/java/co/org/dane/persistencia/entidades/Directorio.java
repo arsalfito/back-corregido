@@ -24,6 +24,7 @@ import javax.persistence.Table;
 
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoDocumento;
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoRegistroMercantil;
+import co.org.dane.persistencia.entidades.tipos.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
 import lombok.Getter;
 import lombok.Setter;

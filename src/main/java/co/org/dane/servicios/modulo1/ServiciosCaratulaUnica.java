@@ -6,9 +6,11 @@ package co.org.dane.servicios.modulo1;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.org.dane.excepciones.EncuestaAnualComercioException;
 import co.org.dane.persistencia.entidades.CapitalSocial;
@@ -65,6 +67,10 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	
 	@Autowired
 	private RepositorioEstadoModulos repositorioEstadoModulos;
+	
+	
+	
+	
 	
 	@Override
 	public CaratulaUnica guardarCaratulaUnica(CaratulaUnica caratulaUnica, String usuario) throws EncuestaAnualComercioException {	
@@ -156,17 +162,6 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Override
 	public Direccion guardarDireccion(Direccion direccion, String usuario) throws EncuestaAnualComercioException {
 		
-		if(direccion.getId()==0) {
-			direccion.setUsuarioCreacion(usuario);
-			direccion.setFechaCreacion(new Date());
-		}else {
-			Direccion direccionDB = this.repositorioDireccion.getById(direccion.getId());
-			direccion.setUsuarioCreacion(direccionDB.getUsuarioCreacion());
-			direccion.setFechaCreacion(direccionDB.getFechaCreacion());
-			direccion.setUsuarioModificacion(usuario);
-			direccion.setFechaModificacion(new Date());
-		}
-		
 		return this.repositorioDireccion.save(direccion);
 	}
 
@@ -210,15 +205,11 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 	@Override
 	public NovedadEncuesta guardarNovedadEncuesta(NovedadEncuesta novedadEncuesta, String usuario)
 			throws EncuestaAnualComercioException {
-		
 		return this.repositorioNovedadEncuesta.save(novedadEncuesta);
 	}
 
 	@Override
 	public EstadoEncuesta guardarEstadoEncuesta(EstadoEncuesta estadoEncuesta, String usuario) throws EncuestaAnualComercioException {
-		
-		
-		
 		return this.repositorioEstadoEncuesta.save(estadoEncuesta);
 	}
 
@@ -227,6 +218,41 @@ public class ServiciosCaratulaUnica implements IServiciosCaratulaUnica {
 		
 		
 		return this.repositorioEstadoModulos.save(estadoModulos);
+	}
+	
+	@Override
+	@Transactional
+	public CaratulaUnica guardarCaratulaCompleta(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException {
+		System.out.println("guardarCaratulaCompleta");
+		
+		//TODO se deben eliminar el capital social si ya existe cuando viene null desde el front
+		
+		//Gestiona capilat social.
+		CapitalSocial cse = null;
+		if(caratulaUnica.getCapitalSocialExtranjero()!=null) 
+			cse = this.repositorioCapitalSocial.save(caratulaUnica.getCapitalSocialExtranjero());
+		caratulaUnica.setCapitalSocialExtranjero(cse);
+		
+		CapitalSocial csn = null;
+		if(caratulaUnica.getCapitalSocialNacional()!=null) 
+			csn = this.repositorioCapitalSocial.save(caratulaUnica.getCapitalSocialNacional());
+		caratulaUnica.setCapitalSocialNacional(csn);
+		
+		//Almacena la caratula unica,
+		CaratulaUnica result = this.repositorioCaratulaUnica.save(caratulaUnica);
+		
+		//Almacena las operaaciones.
+		List<Operacion> operaciones = (List<Operacion>) caratulaUnica.getOperaciones();
+		if(operaciones!=null && !operaciones.isEmpty()){
+			int length = operaciones.size();
+			IntStream.range(0, length).forEach(index  -> {
+				Operacion operacion = operaciones.get(index);
+				operacion.setCaratulaUnica(result);
+				this.repositorioOperacion.save(operacion);					
+			});
+		}
+		
+		return result;
 	}
 	
 }

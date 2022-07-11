@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import co.org.dane.persistencia.entidades.tipos.GruposMercancia;
 import co.org.dane.persistencia.entidades.tipos.TipoVariable;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,6 +49,10 @@ public class CodigoCIIU implements Serializable{
 	private String nombre;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_TIPO_VARIABLE_FK", nullable = false, updatable = true)
+	@JoinColumn(name = "ID_TIPO_VARIABLE_FK", nullable = true, updatable = true)
 	private TipoVariable tipoVariable;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_GRUPO_MERCANCIA_FK", nullable = true, updatable = true)
+	private GruposMercancia grupoMercancia;
 }

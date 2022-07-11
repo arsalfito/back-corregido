@@ -32,7 +32,7 @@ import co.org.dane.persistencia.entidades.CodigoCIIU;
 import co.org.dane.persistencia.entidades.Departamento;
 import co.org.dane.persistencia.entidades.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.Municipio;
-import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
+import co.org.dane.persistencia.entidades.tipos.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.tipos.TipoCausa;
 import co.org.dane.persistencia.entidades.tipos.TipoIngresosNoOperacionales;
 import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;

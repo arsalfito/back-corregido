@@ -4,10 +4,11 @@
 package co.org.dane.persistencia.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,9 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+import co.org.dane.persistencia.entidades.enumeraciones.ETipoGrupo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +36,7 @@ public class GruposMercanciasMayoresVentas implements Serializable{
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "SeqTipoGrupo" )
-	@SequenceGenerator( name = "SeqTipoGrupo", sequenceName = "SEQ_TIPO_GRUPO", initialValue = 1, allocationSize = 1 )
+	@SequenceGenerator( name = "SeqTipoGrupo", sequenceName = "SEQ_GRUP_MERC_MAY_VEN", initialValue = 1, allocationSize = 1 )
 	@Column( name = "ID_GRUP_MERC_MAY_VEN_PK", nullable = false )
 	private long id;
 	
@@ -46,23 +46,9 @@ public class GruposMercanciasMayoresVentas implements Serializable{
 	@Column( name = "PORCENTAJE_VENTAS", nullable = false, updatable = true, length = 3 )
 	private double porcentajeVentas;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_TIPO_GRUPO_FK", nullable = false, updatable = true)
-	private TipoGrupo tipoGrupo;
+	@Enumerated(EnumType.STRING)
+	@Column(length = 15)
+	private ETipoGrupo tipoGrupo;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CODIGO_CIIU_FK", nullable = false, updatable = true)

@@ -4,7 +4,6 @@
 package co.org.dane.persistencia.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,8 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoDireccion;
 import lombok.Getter;
@@ -63,20 +60,6 @@ public class Direccion implements Serializable{
 	@Column( name = "CORREO_ELECTRONICO", nullable = true, updatable = true, length = 40 )
 	private String correoElectronico;
 	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
-		
 	//IDWEB Página Web 
 	@Column( name = "PAGINA_WEB", nullable = true, updatable = true, length = 40 )
 	private String paginaWeb;
@@ -90,7 +73,7 @@ public class Direccion implements Serializable{
 	private Municipio municipio;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(length = 10)
+	@Column(length = 20)
 	private ETipoDireccion tipoDireccion;
 
 }

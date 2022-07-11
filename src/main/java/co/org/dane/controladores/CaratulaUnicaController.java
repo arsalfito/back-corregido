@@ -30,6 +30,7 @@ import co.org.dane.dto.modulo1.IngresosNoOperacionalesDTO;
 import co.org.dane.dto.modulo1.NovedadEncuestaDTO;
 import co.org.dane.dto.modulo1.OperacionDTO;
 import co.org.dane.dto.modulo1.VariableEmpresaDTO;
+import co.org.dane.dto.modulo1.v1.CaratulaUnicaV1DTO;
 import co.org.dane.fachada.modulo1.CapitalSocialFachada;
 import co.org.dane.fachada.modulo1.CaratulaUnicaFachada;
 import co.org.dane.fachada.modulo1.DireccionFachada;
@@ -40,6 +41,7 @@ import co.org.dane.fachada.modulo1.IngresosNoOperacionalesFachada;
 import co.org.dane.fachada.modulo1.NovedadEncuestaFachada;
 import co.org.dane.fachada.modulo1.OperacionFachada;
 import co.org.dane.fachada.modulo1.VariableEmpresaFachada;
+import co.org.dane.fachada.modulo1.v1.CaratulaUnicaFachadaV1;
 import co.org.dane.persistencia.entidades.CapitalSocial;
 import co.org.dane.persistencia.entidades.CaratulaUnica;
 import co.org.dane.persistencia.entidades.Direccion;
@@ -67,6 +69,35 @@ public class CaratulaUnicaController {
 	
 	@Autowired
 	private JwtUtils jwtUtils;
+	
+	
+	
+	
+	
+	@PostMapping(path = "/guardarCaratulaCompleta", consumes =  MediaType.APPLICATION_JSON_VALUE, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CaratulaUnicaV1DTO> guardarCaratulaCompleta(@RequestHeader("Authorization") String token, @RequestBody CaratulaUnicaV1DTO caratulaUnicaDTO ) {
+		try {
+			CaratulaUnica caratula = this.serviciosCaratulaUnica.guardarCaratulaCompleta(CaratulaUnicaFachadaV1.getInstance().convertirEntity(caratulaUnicaDTO));
+			
+			if(caratula==null){
+				caratula = new CaratulaUnica();
+				caratula.setId(0);
+			}
+				
+			
+			return ResponseEntity.created(new URI("/" + caratula.getId())).body(CaratulaUnicaFachadaV1.getInstance().convertirDTO(caratula));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	
+	
+	
+	
+	
 	
 	@PostMapping(path = "/caratulaUnica", consumes =  MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)

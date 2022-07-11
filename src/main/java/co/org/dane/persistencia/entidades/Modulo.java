@@ -37,4 +37,7 @@ public class Modulo implements Serializable{
 	@Column( name = "NOMBRE", nullable = false, updatable = true, length = 50 )
 	private String nombre;
 	
+	@Column( name = "ORDEN", nullable = false, updatable = true, length = 2 )
+	private int orden;
+	
 }

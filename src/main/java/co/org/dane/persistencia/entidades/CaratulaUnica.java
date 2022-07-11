@@ -25,6 +25,7 @@ import javax.persistence.Table;
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoDocumento;
 import co.org.dane.persistencia.entidades.enumeraciones.ETipoRegistroMercantil;
 import co.org.dane.persistencia.entidades.tipos.CausasOperacion;
+import co.org.dane.persistencia.entidades.tipos.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
 import lombok.Getter;
 import lombok.Setter;
@@ -227,7 +228,12 @@ public class CaratulaUnica implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
 	private Collection<ValorActivos> valorActivos;
 	
+	//----------------------------------------
+	//Relaciones con las entidaes de Inconsistencias.
+	//----------------------------------------
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "caratulaUnica")
+	private Collection<Observaciones> observaciones;
 
 	
 }

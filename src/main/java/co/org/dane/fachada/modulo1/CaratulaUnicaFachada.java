@@ -16,7 +16,7 @@ import co.org.dane.dto.modulo1.CaratulaUnicaDTO;
 import co.org.dane.persistencia.entidades.CaratulaUnica;
 import co.org.dane.persistencia.entidades.EstadoEmpresa;
 import co.org.dane.persistencia.entidades.PeriodoRecoleccion;
-import co.org.dane.persistencia.entidades.SubTipoOrganizacion;
+import co.org.dane.persistencia.entidades.tipos.SubTipoOrganizacion;
 import co.org.dane.persistencia.entidades.tipos.TipoOrganizacion;
 
 /**

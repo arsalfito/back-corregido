@@ -5,6 +5,7 @@ package co.org.dane.dto.modulo1;
 
 import java.io.Serializable;
 
+import co.org.dane.persistencia.entidades.enumeraciones.ETipoCapitalSocial;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,5 @@ public class CapitalSocialDTO implements Serializable{
 	private int publico;
 	private int privado;
 	private int total;
-	private int idTipoCapitalSocial;
-	private long idCaratulaUnica;
+	private ETipoCapitalSocial tipoCapitalSocial;
 }

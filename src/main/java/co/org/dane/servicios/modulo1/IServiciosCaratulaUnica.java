@@ -22,7 +22,9 @@ import co.org.dane.persistencia.entidades.VariableEmpresa;
  *
  */
 public interface IServiciosCaratulaUnica {
-
+	
+	public CaratulaUnica guardarCaratulaCompleta(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException;
+	
 	public CaratulaUnica guardarCaratulaUnica(CaratulaUnica caratulaUnica, String usuario) throws EncuestaAnualComercioException;
 	public CaratulaUnica modificarCaratulaUnica(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException;
 	public CaratulaUnica eliminarCaratulaUnica(CaratulaUnica caratulaUnica) throws EncuestaAnualComercioException;

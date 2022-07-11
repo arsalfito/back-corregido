@@ -5,7 +5,6 @@ package co.org.dane.persistencia.entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,9 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+import co.org.dane.persistencia.entidades.tipos.GruposMercancia;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -60,20 +58,6 @@ public class IngresosNetosPorGrupos implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_GRUPO_MERCANCIA_FK", nullable = false, updatable = true)
 	private GruposMercancia grupoMercancia;
-	
-	@Column( name = "USUARIO_CREACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioCreacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_CREACION", nullable = true, updatable = true )
-	private Date fechaCreacion;
-	
-	@Column( name = "USUARIO_MODIFICACION", nullable = true, updatable = true, length = 30 )
-	private String usuarioModificacion;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column( name = "FECHA_MODIFICACION", nullable = true, updatable = true)
-	private Date fechaModificacion;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ingresosNetosPorGrupos")
 	private Collection<GruposMercanciasMayoresVentas> gruposMercanciasMayoresVentas;
